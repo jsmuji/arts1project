@@ -27,10 +27,9 @@ section, summary, time, mark, audio, video {
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;}
-
-body {
-	line-height: 1;
+    display: block;
+    position: relative;
+    z-index: 0;
 }
 
 ol, ul {
@@ -98,7 +97,7 @@ input, select, textarea {
 	}
 
 	body, input, select, textarea {
-		color: rgba(255, 255, 255, 0.75);
+		color: #ffffff;
 		font-family: "Roboto", Helvetica, sans-serif;
 		font-size: 15pt;
 		font-weight: 100;
@@ -110,14 +109,30 @@ input, select, textarea {
 		-webkit-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		-ms-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		border-bottom: dotted 1px;
-		color: #e44c65;
-		text-decoration: none;
+		color: #B22222; /* Firebrick red */
+    	text-decoration: none;
+    	border-bottom: dotted 1px;
+    	transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+	}
+
+	a:after {
+		content: '';
+		position: absolute;
+		width: 0%;
+		height: 2px;
+		background: #1E90FF;
+		left: 0;
+		bottom: -5px;
+		transition: width 0.3s ease;
 	}
 
 		a:hover {
-			color: #e44c65 !important;
-			border-bottom-color: transparent;
+			color: #1E90FF; /* Dodger Blue on hover */
+    		border-bottom-color: transparent;
+		}
+
+		a:hover:after {
+			width: 100%;
 		}
 
 	strong, b {
@@ -2855,8 +2870,8 @@ input, select, textarea {
 		input[type="button"]:active,
 		.button:hover,
 		.button:active {
-			box-shadow: inset 0 0 0 1px #e44c65;
-			color: #e44c65 !important;
+			box-shadow: inset 0 0 0 1px #1E90FF;
+			color: #1E90FF !important;
 		}
 
 		input[type="submit"]:active,
@@ -3190,6 +3205,20 @@ input, select, textarea {
 			transform: translate(5em,0);
 		}
 
+		.spotlight.no-parallax {
+			background-attachment: scroll;
+			height: auto;
+			box-shadow: none;
+		}
+		
+		
+		.spotlight.no-parallax .content {
+			background: rgba(23, 24, 32, 0.95); 
+			border-style: solid; 
+			transform: none; 
+			transition: none; 
+		}
+
 	body.is-touch .spotlight {
 		background-attachment: scroll;
 	}
@@ -3374,8 +3403,8 @@ input, select, textarea {
 	}
 
 	#header {
-		background: rgba(39, 40, 51, 0.965);
-		box-shadow: 0 0 0.25em 0 rgba(0, 0, 0, 0.25);
+		background: rgba(13, 13, 13, 0.9);
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 		cursor: default;
 		height: 3.5em;
 		left: 0;
@@ -3384,6 +3413,7 @@ input, select, textarea {
 		top: 0;
 		width: 100%;
 		z-index: 100;
+		text-align: center;
 	}
 
 		#header h1 {
@@ -3396,13 +3426,16 @@ input, select, textarea {
 		}
 
 		#header nav {
-			position: absolute;
-			right: 1em;
+			position: relative;
 			top: 0;
+			text-align: center;
+			width: 100%;
 		}
 
 			#header nav ul {
+				display: inline-block;
 				margin: 0;
+				padding: 0;
 			}
 
 				#header nav ul li {
@@ -3412,7 +3445,11 @@ input, select, textarea {
 
 					#header nav ul li a, #header nav ul li span {
 						border: 0;
-						color: inherit;
+						color: #ffffff;
+						font-weight: bold;
+						font-size: 1.2em;
+						text-decoration: none;
+						padding: 0.5em 1em;
 						display: inline-block;
 						height: inherit;
 						line-height: inherit;
@@ -3450,16 +3487,17 @@ input, select, textarea {
 /* Banner */
 
 	#banner {
-		background-attachment: fixed;
+		background-attachment: scroll;
 		background-color: #272833;
-		background-image: url("../../images/banner.jpg");
+		background-image: url("../../images/protestbanner.jpg");
 		background-position: center center;
 		background-size: cover;
+		background-repeat: no-repeat;
 		box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.25);
 		min-height: 100vh;
 		position: relative;
 		text-align: center;
-		z-index: 21;
+		z-index: 2;
 	}
 
 		#banner:before {
@@ -3486,44 +3524,77 @@ input, select, textarea {
 
 		#banner .content {
 			display: inline-block;
-			margin-right: 1%;
+			margin: 0 auto;
 			max-width: 95%;
-			padding: 6em;
+			padding: 1em 2em;
 			position: relative;
-			text-align: right;
+			text-align: center;
 			vertical-align: middle;
-			z-index: 1;
+			z-index: 2;
 		}
 
 			#banner .content header {
-				display: inline-block;
-				vertical-align: middle;
+				display: block;
+				text-align: center;
+				margin-top: -20em;
+				z-index: 3;
 			}
 
 				#banner .content header h2 {
-					font-size: 2.5em;
-					margin: 0;
+					font-size: 3em;
+					color: #FFFFFF;
+					margin-top: 1em;
+					margin-bottom: 0.5em;
 				}
 
 				#banner .content header p {
-					margin: 0.5em 0 0 0;
+					font-size: 1.5em;
+					color: #FFFFFF;
+					margin-bottom: 1em;
 					top: 0;
 				}
-
+			
+			#banner .content .image-container {
+				position: relative;
+				display: inline-block;
+				margin: 0 auto 1em auto;
+				text-align: center;
+			}
+			
 			#banner .content .image {
 				border-radius: 100%;
-				display: inline-block;
+				display: block;
 				height: 18em;
-				margin-left: 3em;
-				vertical-align: middle;
 				width: 18em;
+				overflow: hidden;
+				position: relative;
+				z-index: 2;
 			}
 
 				#banner .content .image img {
 					border-radius: 100%;
 					display: block;
 					width: 100%;
+					height: auto;
 				}
+			
+			#banner .content .dripping-effect {
+				position: absolute;
+				top: 70%; 
+				left: 45%;
+				transform: translateX(-50%);
+				width: 250%;
+				height: 150%; /* Set an explicit height */
+				z-index: 1; 
+			}
+				#banner .content .dripping-effect img {
+					width: 100%;
+					height: 100%;
+					object-fit: fill;
+					opacity: 0.15;
+				}
+
+			
 
 	body.is-touch #banner {
 		background-attachment: scroll;
@@ -3532,7 +3603,7 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		background: #272833;
+		background: #000000;
 		padding: 6em 0;
 		text-align: center;
 	}
@@ -3542,6 +3613,7 @@ input, select, textarea {
 		}
 
 			#footer .icons .icon.alt:before {
+				
 				-moz-osx-font-smoothing: grayscale;
 				-webkit-font-smoothing: antialiased;
 				display: inline-block;
@@ -3555,8 +3627,8 @@ input, select, textarea {
 			}
 
 			#footer .icons .icon.alt:before {
-				color: #272833 !important;
-				text-shadow: 1px 0 0 rgba(255, 255, 255, 0.5), -1px 0 0 rgba(255, 255, 255, 0.5), 0 1px 0 rgba(255, 255, 255, 0.5), 0 -1px 0 rgba(255, 255, 255, 0.5);
+				color: #000000 !important;
+				text-shadow: 1px 0 0 #ffffff, -1px 0 0 #ffffff, 0 1px 0 #ffffff, 0 -1px 0 #ffffff;
 			}
 
 		#footer .copyright {
@@ -3593,7 +3665,7 @@ input, select, textarea {
 		/* Basic */
 
 			body, input, select, textarea {
-				font-size: 13pt;
+				font-size: 14pt;
 			}
 
 	}
@@ -3837,6 +3909,7 @@ input, select, textarea {
 			#banner {
 				box-shadow: 0 0.125em 0.5em 0 rgba(0, 0, 0, 0.25);
 				min-height: calc(100vh - 44px);
+				
 			}
 
 				#banner:before {
@@ -3848,12 +3921,17 @@ input, select, textarea {
 				}
 
 					#banner .content header h2 {
+						color: #ffffff;
 						font-size: 1.5em;
 					}
 
 					#banner .content .image {
 						height: 9em;
 						width: 9em;
+					}
+
+					#banner .content header p {
+						color: #ffffff;
 					}
 
 		/* Nav */
@@ -4037,6 +4115,7 @@ input, select, textarea {
 				-ms-transform: translateX(0);
 				transform: translateX(0);
 			}
+			  
 
 		/* Footer */
 
@@ -4066,6 +4145,9 @@ input, select, textarea {
 			input[type="reset"],
 			input[type="button"],
 			.button {
+				background-color: #ff0000; /* Red */
+				color: #ffffff !important;
+				border: none;
 				padding: 0;
 			}
 
@@ -4108,4 +4190,52 @@ input, select, textarea {
 						padding: 0;
 					}
 
+	}
+
+	.divider {
+		text-align: center;
+		padding: 0;
+		position: relative;
+		margin-top: -50px; 
+		z-index: 1; 
+	}
+	
+	.divider img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	.divider-svg {
+		position: relative;
+		overflow: hidden;
+		line-height: 0;
+		margin-top: -1px;
+	}
+	
+	.divider-svg svg {
+		position: relative;
+		display: block;
+		width: calc(100% + 1.3px);
+		height: 100px;
+	}
+
+	#gallery .grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		grid-gap: 0.5em;
+	}
+	
+	#gallery .grid-item {
+		overflow: hidden;
+		border-radius: 4px;
+	}
+	
+	#gallery .grid-item img {
+		width: 90%;
+		transition: transform 0.5s ease;
+	}
+	
+	#gallery .grid-item:hover img {
+		transform: scale(1.1);
 	}
