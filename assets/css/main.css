@@ -2217,6 +2217,25 @@ input, select, textarea {
 		margin: 4em 0 0 0;
 	}
 
+	header.major2 {
+		margin: 0 0 4em 0;
+		position: relative;
+		text-align: center;
+	}
+
+		header.major2:after {
+			background: #1E90FF;
+			content: '';
+			display: inline-block;
+			height: 0.2em;
+			max-width: 20em;
+			width: 75%;
+		}
+
+	footer.major2 {
+		margin: 4em 0 0 0;
+	}
+
 /* Form */
 
 	form {
@@ -4311,14 +4330,13 @@ input, select, textarea {
 		object-fit: contain; 
 	}
 
-	/* Image Wrapper */
+
 	.image-wrapper {
 		position: relative;
 		display: inline-block;
 		overflow: hidden; 
 	}
 
-	/* Bars overlay */
 	.image-wrapper::before {
 		content: '';
 		position: absolute;
@@ -4355,3 +4373,80 @@ input, select, textarea {
 			top: 0; 
 		}
 	}
+
+	.image-container2 {
+		position: relative;
+		display: inline-block;
+		margin: 2em 0;
+	  }
+	  
+
+	  .hotspot-wrapper {
+		position: absolute;
+		transform: translate(-50%, -50%); 
+		cursor: pointer;
+	  }
+	  
+
+	  .hotspot {
+		width: 120px;
+		height: 120px;
+		border-radius: 50%;
+		border: 2px solid #ffffff; 
+		background: rgba(255, 255, 255, 0.2);
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+		transition: background 0.3s;
+	  }
+	  
+	  .hotspot:hover {
+		background: rgba(255, 255, 255, 0.5);
+	  }
+	  
+
+	  .info-panel {
+		position: absolute;
+		top: -10px;
+		left: 30px; 
+		background: rgba(0, 0, 0, 0.8); 
+		color: #fff;
+		padding: 1em;
+		width: 400px;
+		border-radius: 4px;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+		font-size: 0.9em;
+		z-index: 9999;
+	  
+		opacity: 0;
+		pointer-events: none; 
+		transform: translateY(-10px);
+		transition: opacity 0.3s ease, transform 0.3s ease;
+	  }
+	  
+
+	  .hotspot-wrapper:hover .info-panel {
+		opacity: 1;
+		pointer-events: auto; 
+		transform: translateY(0);
+	  }
+	  
+
+	  .info-panel.show {
+		opacity: 1;
+		pointer-events: auto;
+		transform: translateY(0);
+	  }
+	  
+
+	  .major2 {
+		text-align: center;
+		margin-bottom: 2em;
+	  }
+	  
+	  .major2 h2 {
+		font-size: 2.5em;
+		color: #272833; 
+	  }
+	  .major2 p {
+		font-size: 1.2em;
+		color: #555555; 
+	  }

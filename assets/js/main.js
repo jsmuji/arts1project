@@ -20,24 +20,26 @@
 		$(document).ready(function() {
 			const imageWrapper = $('.image-wrapper');
 	
-			// Intersection Observer to trigger vertical bar animation on scroll
+
 			const observer = new IntersectionObserver((entries, observer) => {
 				entries.forEach(entry => {
 					if (entry.isIntersecting) {
-						// Add class to start animation when element is in view
+
 						entry.target.classList.add('animate-bars');
-						observer.unobserve(entry.target); // Stop observing once animation starts
+						observer.unobserve(entry.target); 
 					}
 				});
 			}, {
-				threshold: 0.5 // Trigger when 50% of the element is visible
+				threshold: 0.5 
 			});
 	
-			// Observe the image-wrapper for scroll visibility
+
 			imageWrapper.each(function() {
 				observer.observe(this);
 			});
 		});
+
+
 	// Play initial animations on page load.
 		$window.on('load', function() {
 			window.setTimeout(function() {
