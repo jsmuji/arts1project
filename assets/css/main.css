@@ -3009,7 +3009,7 @@ input, select, textarea {
 		background-position: center center;
 		background-size: cover;
 		box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.25);
-		height: 100vh;
+		height: 1300px;
 		overflow: hidden;
 		position: relative;
 	}
@@ -3499,12 +3499,13 @@ input, select, textarea {
 
 	body.landing #page-wrapper {
 		padding-top: 0;
+		padding-bottom: 2;
 	}
 
 	body.landing #header {
 		background: transparent;
 		box-shadow: none;
-		position: absolute;
+		position: relative;
 	}
 
 /* Banner */
@@ -3517,7 +3518,7 @@ input, select, textarea {
 		background-size: cover;
 		background-repeat: no-repeat;
 		box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.25);
-		min-height: 100vh;
+		min-height: 1200px;
 		position: relative;
 		text-align: center;
 		z-index: 2;
@@ -3526,7 +3527,7 @@ input, select, textarea {
 		#banner:before {
 			content: '';
 			display: inline-block;
-			height: 100vh;
+			height: 1200px;
 			vertical-align: middle;
 			width: 1%;
 		}
@@ -3546,13 +3547,12 @@ input, select, textarea {
 		}
 
 		#banner .content {
-			display: inline-block;
-			margin: 0 auto;
-			max-width: 95%;
-			padding: 1em 2em;
-			position: relative;
+			position: absolute; 
+			top: 50%; 
+			left: 50%; 
+			transform: translate(-50%, -50%); 
 			text-align: center;
-			vertical-align: middle;
+			max-width: 90%; 
 			z-index: 2;
 		}
 
@@ -3607,7 +3607,7 @@ input, select, textarea {
 				left: 45%;
 				transform: translateX(-50%);
 				width: 250%;
-				height: 150%; /* Set an explicit height */
+				height: 150%; 
 				z-index: 1; 
 			}
 				#banner .content .dripping-effect img {
@@ -3953,8 +3953,19 @@ input, select, textarea {
 						width: 9em;
 					}
 
+					#banner .content .dripping-effect {
+						height: 9em;
+						width: 9em;
+					}
+
+					#banner .content .image-container {
+						height: 9em;
+						width: 9em;
+					}
+
 					#banner .content header p {
 						color: #ffffff;
+						font-size: 1em;
 					}
 
 		/* Nav */
@@ -4376,21 +4387,25 @@ input, select, textarea {
 
 	.image-container2 {
 		position: relative;
-		display: inline-block;
-		margin: 2em 0;
+		display: block;
+		width: 100%; 
+		max-width: 800px; 
+		margin: 2em 0; 
 	  }
 	  
 
 	  .hotspot-wrapper {
 		position: absolute;
-		transform: translate(-50%, -50%); 
+		transform: translate(-50%,-50%); 
 		cursor: pointer;
 	  }
 	  
 
 	  .hotspot {
-		width: 120px;
-		height: 120px;
+		width: 10%;
+		height: 10%;
+		min-width: 60px;
+		min-height: 60px;
 		border-radius: 50%;
 		border: 2px solid #ffffff; 
 		background: rgba(255, 255, 255, 0.2);
