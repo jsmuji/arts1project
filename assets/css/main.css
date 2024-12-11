@@ -4400,8 +4400,8 @@ input, select, textarea {
 	  
 
 	  .hotspot {
-		width: 120px;
-		height: 120px;
+		width: 8vw;
+		height: 8vw;
 		border-radius: 50%;
 		border: 2px solid #ffffff; 
 		background: rgba(255, 255, 255, 0.2);
