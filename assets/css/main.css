@@ -4387,21 +4387,25 @@ input, select, textarea {
 
 	.image-container2 {
 		position: relative;
-		display: inline-block;
-		margin: 2em 0;
+		display: block;
+		width: 100%; 
+		max-width: 800px; 
+		margin: 2em 0; 
 	  }
 	  
 
 	  .hotspot-wrapper {
 		position: absolute;
-		transform: translate(-50%, -50%); 
+		transform: translate(-50%,-50%); 
 		cursor: pointer;
 	  }
 	  
 
 	  .hotspot {
-		width: 8vw;
-		height: 8vw;
+		width: 10%;
+		height: 10%;
+		min-width: 60px;
+		min-height: 60px;
 		border-radius: 50%;
 		border: 2px solid #ffffff; 
 		background: rgba(255, 255, 255, 0.2);
